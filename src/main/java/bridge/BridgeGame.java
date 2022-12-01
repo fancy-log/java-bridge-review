@@ -7,6 +7,8 @@ import java.util.List;
  * 다리 건너기 게임을 관리하는 클래스
  */
 public class BridgeGame {
+    private static final int MIN_BRIDGE_LEN = 3;
+    private static final int MAX_BRIDGE_LEN = 20;
     private static final String DOWN = "D";
     private static final String UP = "U";
     InputView inputView = new InputView();
@@ -14,9 +16,12 @@ public class BridgeGame {
     List<String> visited = new ArrayList<>();
     BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
     Bridge bridge;
+    Validate validate = new Validate();
     private int tryNum = 1;
     public void init() {
-        int bridgeLen = inputView.readBridgeSize();
+        String input = inputView.readBridgeSize();
+        validate.validateNumberRange(input, MIN_BRIDGE_LEN, MAX_BRIDGE_LEN);
+        int bridgeLen = Integer.parseInt(input);
         List<String> answerBridge = bridgeMaker.makeBridge(bridgeLen);
         bridge = new Bridge(answerBridge);
     }
