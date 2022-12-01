@@ -15,4 +15,11 @@ public class Bridge {
         }
         return false;
     }
+
+    public boolean isCrossDirection(List<String> visited) {
+        if(visited.size() == answerBridge.size()) {
+            return true;
+        }
+        return false;
+    }
 }
