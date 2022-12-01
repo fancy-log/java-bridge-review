@@ -26,7 +26,7 @@ public class BridgeMaker {
             answerBridge.add(moveDirection);
         }
 
-        return null;
+        return answerBridge;
     }
 
     private String checkUpOrDown() {
