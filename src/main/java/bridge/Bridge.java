@@ -9,7 +9,7 @@ public class Bridge {
         this.answerBridge = answerBridge;
     }
 
-    public boolean RightDirection(int index, String direction) {
+    public boolean isRightDirection(int index, String direction) {
         if (answerBridge.get(index).equals(direction)) {
             return true;
         }
