@@ -7,7 +7,8 @@ import java.util.List;
  * 다리 건너기 게임을 관리하는 클래스
  */
 public class BridgeGame {
-
+    private static final String DOWN = "D";
+    private static final String UP = "U";
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     List<String> visited = new ArrayList<>();
@@ -26,16 +27,41 @@ public class BridgeGame {
      */
     public boolean move() {
         String direction = inputView.readMoving();
-        boolean isRightDirection = bridge.isRightDirection(visited.size(),direction);
-        if(isRightDirection) {
-            outputView.printMap(visited, direction, "O");
-            visited.add(direction);
-            return true;
-        }
-        outputView.printMap(visited, direction, "X");
-        return false;
+        visited.add(direction);
+        printUpBridge();
+        printDownBridge();
+        int idx = visited.size()-1;
+        return bridge.isRightDirection(idx,direction);
     }
 
+    private void printUpBridge() {
+        List<String> upBridge = new ArrayList<>();
+        for(int i = 0; i < visited.size(); i++) {
+            boolean rightDirection = bridge.isRightDirection(i, visited.get(i));
+            String result = getResult(i, UP, rightDirection);
+            upBridge.add(result);
+        }
+        outputView.printMap(upBridge);
+    }
+    private void printDownBridge() {
+        List<String> downBridge = new ArrayList<>();
+        for(int i = 0; i < visited.size(); i++) {
+            boolean rightDirection = bridge.isRightDirection(i, visited.get(i));
+            String result = getResult(i, DOWN, rightDirection);
+            downBridge.add(result);
+        }
+        outputView.printMap(downBridge);
+    }
+    private String getResult(int i, String direction, boolean rightDirection) {
+        String result = "X";
+        if(rightDirection) {
+            result = "O";
+        }
+        if(!visited.get(i).equals(direction)) {
+            result = " ";
+        }
+        return result;
+    }
     public boolean isGameCompleted() {
         if(bridge.isCrossDirection(visited)) {
             return true;
