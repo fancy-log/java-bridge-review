@@ -85,4 +85,16 @@ public class BridgeGame {
         visited = new ArrayList<>();
         tryNum += 1;
     }
+
+    public void printGameResult() {
+        outputView.printEnding();
+        printUpBridge();
+        printDownBridge();
+        boolean isSuccess = bridge.isCrossDirection(visited);
+        String result = "실패";
+        if(isSuccess) {
+            result = "성공";
+        }
+        outputView.printResult(result,tryNum);
+    }
 }
