@@ -46,21 +46,17 @@ public class Application {
     private static boolean move() {
         String direction = inputView.readMoving();
         visited = bridgeGame.move(direction);
-        printUpBridge();
-        printDownBridge();
+        printBridge();
 
         return bridgeGame.isRightDirection(visited.size()-1, direction);
     }
-    private static void printUpBridge() {
-        List<String> upBridge = bridgeGame.getUpBridge();
-        outputView.printMap(upBridge);
-    }
 
-    private static void printDownBridge() {
+    private static void printBridge() {
+        List<String> upBridge = bridgeGame.getUpBridge();
         List<String> downBridge = bridgeGame.getDownBridge();
+        outputView.printMap(upBridge);
         outputView.printMap(downBridge);
     }
-
     public static String getResult(int i, String direction, boolean rightDirection) {
         String result = "O";
         if(!rightDirection) {
@@ -77,8 +73,7 @@ public class Application {
     }
     private static void printGameResult() {
         outputView.printEnding();
-        printUpBridge();
-        printDownBridge();
+        printBridge();
         String result = bridgeGame.getGameResult();
         int tryNum = bridgeGame.getTryNum();
         outputView.printResult(result,tryNum);
