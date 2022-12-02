@@ -19,12 +19,10 @@ public class BridgeGame {
     private static final String UP = "U";
     private static final String RESTART = "R";
     private static final String QUIT = "Q";
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
-    List<String> visited = new ArrayList<>();
-    BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
-    Bridge bridge;
-    Validate validate = new Validate();
+    private List<String> visited = new ArrayList<>();
+    private static final BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+    private Bridge bridge;
+    private static final Validate validate = new Validate();
     private int tryNum = 1;
     private boolean isSuccess = true;
     public void init(String input) {
