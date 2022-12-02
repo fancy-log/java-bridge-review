@@ -35,7 +35,7 @@ public class Application {
             if(bridgeGame.isGameCompleted()) {
                 break;
             }
-            if(!bridgeGame.isRightDirection(visited.size()-1, direction) && !bridgeGame.retry()) {
+            if(!bridgeGame.isRightDirection(visited.size()-1, direction) && !retry()) {
                 break;
             }
         }
@@ -71,7 +71,10 @@ public class Application {
         }
         return result;
     }
-
+    public static boolean retry() {
+        String select = inputView.readGameCommand();
+        return bridgeGame.retry(select);
+    }
     private static void printGameResult() {
         outputView.printEnding();
         printUpBridge();
