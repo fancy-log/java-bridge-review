@@ -10,8 +10,6 @@ public class Application {
     private static final OutputView outputView = new OutputView();
     private static final BridgeGame bridgeGame = new BridgeGame();
     private static List<String> visited;
-    Bridge bridge;
-    private static boolean isSuccess = true;
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -63,7 +61,6 @@ public class Application {
     public static String getResult(int i, String direction, boolean rightDirection) {
         String result = "O";
         if(!rightDirection) {
-            isSuccess = false;
             result ="X";
         }
         if(!visited.get(i).equals(direction)) {

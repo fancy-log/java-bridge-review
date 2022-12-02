@@ -40,35 +40,6 @@ public class BridgeGame {
     public boolean isRightDirection(int idx, String direction) {
         return bridge.isRightDirection(idx, direction);
     }
-    private void printUpBridge() {
-        List<String> upBridge = new ArrayList<>();
-        for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = bridge.isRightDirection(i, visited.get(i));
-            String result = getResult(i, UP, rightDirection);
-            upBridge.add(result);
-        }
-        outputView.printMap(upBridge);
-    }
-    private void printDownBridge() {
-        List<String> downBridge = new ArrayList<>();
-        for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = bridge.isRightDirection(i, visited.get(i));
-            String result = getResult(i, DOWN, rightDirection);
-            downBridge.add(result);
-        }
-        outputView.printMap(downBridge);
-    }
-    private String getResult(int i, String direction, boolean rightDirection) {
-        String result = "O";
-        if(!rightDirection) {
-            isSuccess = false;
-            result ="X";
-        }
-        if(!visited.get(i).equals(direction)) {
-            result = " ";
-        }
-        return result;
-    }
     public boolean isGameCompleted() {
         if(bridge.isCrossDirection(visited) && isSuccess) {
             return true;
