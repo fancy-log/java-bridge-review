@@ -39,15 +39,13 @@ public class BridgeGame {
     public boolean move(String direction) {
         validate.validateContainWord(direction, UP, DOWN);
         visited.add(direction);
-        return isRightDirection(visited.size()-1, direction);
+        return bridge.isRightDirection(visited.size()-1, direction);
     }
-    public boolean isRightDirection(int idx, String direction) {
-        return bridge.isRightDirection(idx, direction);
-    }
+
     public List<String> getBridgeLine(String direction) {
         List<String> bridgeLine = new ArrayList<>();
         for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = isRightDirection(i, visited.get(i));
+            boolean rightDirection = bridge.isRightDirection(i, visited.get(i));
             String result = getResult(i, direction, rightDirection);
             bridgeLine.add(result);
         }
