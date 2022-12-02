@@ -26,20 +26,20 @@
 
 - ### Main diagram
 
-- [ ] Application
-- [ ] BridgeGame
-- [ ] BridgeMaker
-- [ ] BridgeNumberGenerator
-- [ ] BridgeRandomNumberGenerator
+- [x] Application
+- [x] BridgeGame
+- [x] BridgeMaker
+- [x] BridgeNumberGenerator
+- [x] BridgeRandomNumberGenerator
 
 
 - ### Util diagram
-- [ ] Validate
+- [x] Validate
 
 
 - ### View diagram
-- [ ] InputView
-- [ ] OutputView
+- [x] InputView
+- [x] OutputView
 
 
 ---
@@ -61,6 +61,10 @@
 
 ## ✅추가할 객체
 
+- [x] 다리(Bridge)
+  - 입력값이 건널 수 있는 다리인지 체크
+  - 다리를 전부 건넜는지 체크
+
 
 ## ✅예외 처리
 
@@ -73,3 +77,17 @@
 - [x] 다리를 건너다 실패하면 게임을 재시작하거나 종료 여부를 입력 받는다 (재시작: R, 종료: Q) -> 예외 처리
   - [x] R 또는 Q가 아닌 다른 문자를 입력한 경우
   - [x] R 또는 Q가 아닌 숫자를 입력한 경우
+
+
+## 테스트 기능 목록
+
+- [x] ApplicationTest
+  - [x] 다리 생성, 기능, 예외
+- [x] BridgeGameTest
+  - [x] 입력 받은 다리 길이 3이상 20이하의 숫자가 아니면 오류 혹은 확인
+  - [x] 입력 받은 이동 방향이 "U" 와 "D" 둘 중 하나가 아니면 오류 혹은 확인
+  - [x] 게임을 다시 시도할지 여부에 대한 입력 받은 이동 방향이 "R" 와 "Q" 둘 중 하나가 아니면 오류 혹은 확인
+- [x] BridgeMakerTest
+  - [x] 입력 받은 크기의 다리 길이를 생성하는지 확인
+- [x] BridgeTest
+  - [x] 이동 방향 정답 체크 리턴값 확인
