@@ -45,10 +45,10 @@ public class Application {
     }
     private static boolean move() {
         String direction = inputView.readMoving();
-        visited = bridgeGame.move(direction);
+        boolean isRightDirection = bridgeGame.move(direction);
         printBridge();
 
-        return bridgeGame.isRightDirection(visited.size()-1, direction);
+        return isRightDirection;
     }
 
     private static void printBridge() {
