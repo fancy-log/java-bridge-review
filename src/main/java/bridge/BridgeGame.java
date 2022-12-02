@@ -21,8 +21,7 @@ public class BridgeGame {
     Validate validate = new Validate();
     private int tryNum = 1;
     private boolean isSuccess = true;
-    public void init() {
-        String input = inputView.readBridgeSize();
+    public void init(String input) {
         validate.validateNumberRange(input, MIN_BRIDGE_LEN, MAX_BRIDGE_LEN);
         int bridgeLen = Integer.parseInt(input);
         List<String> answerBridge = bridgeMaker.makeBridge(bridgeLen);
