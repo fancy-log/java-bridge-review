@@ -14,8 +14,8 @@ public class Validate {
     }
 
     public void validateContainWord(String input, String word1, String word2) {
-        if (!input.equals(word1) || !input.equals(word2)) {
-            throw new IllegalArgumentException(ERROR_MASSAGE + word1 + "또는" + word2 + "만 입력 가능합니다");
+        if (!input.equals(word1) && !input.equals(word2)) {
+            throw new IllegalArgumentException(ERROR_MASSAGE + word1 + " 또는 " + word2 + "만 입력 가능합니다.");
         }
     }
 }
