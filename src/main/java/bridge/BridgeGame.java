@@ -20,6 +20,7 @@ public class BridgeGame {
     Bridge bridge;
     Validate validate = new Validate();
     private int tryNum = 1;
+    private boolean isSuccess = true;
     public void init() {
         String input = inputView.readBridgeSize();
         validate.validateNumberRange(input, MIN_BRIDGE_LEN, MAX_BRIDGE_LEN);
@@ -61,9 +62,10 @@ public class BridgeGame {
         outputView.printMap(downBridge);
     }
     private String getResult(int i, String direction, boolean rightDirection) {
-        String result = "X";
-        if(rightDirection) {
-            result = "O";
+        String result = "O";
+        if(!rightDirection) {
+            isSuccess = false;
+            result ="X";
         }
         if(!visited.get(i).equals(direction)) {
             result = " ";
@@ -93,15 +95,16 @@ public class BridgeGame {
     public void restartInit() {
         visited = new ArrayList<>();
         tryNum += 1;
+        isSuccess = true;
     }
 
     public void printGameResult() {
         outputView.printEnding();
         printUpBridge();
         printDownBridge();
-        boolean isSuccess = bridge.isCrossDirection(visited);
+        boolean isCompleted = bridge.isCrossDirection(visited);
         String result = "실패";
-        if(isSuccess) {
+        if(isSuccess && isCompleted) {
             result = "성공";
         }
         outputView.printResult(result,tryNum);
