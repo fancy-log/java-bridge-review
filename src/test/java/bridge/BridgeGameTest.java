@@ -2,6 +2,9 @@ package bridge;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -39,9 +42,13 @@ class BridgeGameTest {
     @DisplayName("입력 받은 이동 방향이 \"U\" 와 \"D\" 둘 중 하나인지 확인")
     @ParameterizedTest
     @ValueSource(strings = {"U", "D"})
-    void moveDirectionOk(String moveDirection) {
+    void moveDirectionOK(String direction) throws NoSuchFieldException, IllegalAccessException {
+        Field bridge = bridgeGame.getClass().getDeclaredField("bridge");
+        bridge.setAccessible(true);
+        List<String> answerBridge = List.of("U","D","D");
+        bridge.set(bridgeGame,new Bridge(answerBridge));
         assertDoesNotThrow(()->
-            bridgeGame.move(moveDirection));
+            bridgeGame.move(direction));
     }
 
     @DisplayName("게임을 다시 시도할지 여부에 대한 입력 받은 이동 방향이 \"R\" 와 \"Q\" 둘 중 하나가 아니면 오류")
