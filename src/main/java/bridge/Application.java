@@ -3,6 +3,9 @@ package bridge;
 import java.util.ArrayList;
 import java.util.List;
 
+import View.InputView;
+import View.OutputView;
+
 public class Application {
     private static final String DOWN = "D";
     private static final String UP = "U";

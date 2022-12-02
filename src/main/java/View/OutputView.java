@@ -1,4 +1,4 @@
-package bridge;
+package View;
 
 import java.util.List;
 
