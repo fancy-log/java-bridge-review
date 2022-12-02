@@ -47,7 +47,7 @@ class BridgeGameTest {
     @DisplayName("게임을 다시 시도할지 여부에 대한 입력 받은 이동 방향이 \"R\" 와 \"Q\" 둘 중 하나가 아니면 오류")
     @ParameterizedTest
     @ValueSource(strings = {"A", "RR", "QQ", "Z", "ID", "RQ"})
-    void retryDirection(String select) {
+    void retryOption(String select) {
         Assertions.assertThatThrownBy(()->
             bridgeGame.retry(select))
             .isInstanceOf(IllegalArgumentException.class);
@@ -56,7 +56,7 @@ class BridgeGameTest {
     @DisplayName("게임을 다시 시도할지 여부에 대한 입력 받은 이동 방향이 \"R\" 와 \"Q\" 둘 중 하나인지 확인")
     @ParameterizedTest
     @ValueSource(strings = {"R","Q"})
-    void retryDirectionOk(String select) {
+    void retryOptionOk(String select) {
         assertDoesNotThrow(()->
             bridgeGame.retry(select));
     }
