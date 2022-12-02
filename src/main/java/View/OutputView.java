@@ -24,14 +24,6 @@ public class OutputView {
         System.out.println(" ]");
     }
 
-    private void checkEqual(String visited, String direction, String result) {
-        if(visited.equals(direction)) {
-            System.out.print(result);
-            return;
-        }
-        System.out.println(" ");
-    }
-
     /**
      * 게임의 최종 결과를 정해진 형식에 맞춰 출력한다.
      * <p>
