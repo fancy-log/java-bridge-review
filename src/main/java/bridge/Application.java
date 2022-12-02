@@ -52,8 +52,9 @@ public class Application {
     }
 
     private static void printBridge() {
-        List<String> upBridge = bridgeGame.getUpBridge();
-        List<String> downBridge = bridgeGame.getDownBridge();
+        List<String> upBridge = bridgeGame.getBridgeLine(UP);
+        List<String> downBridge = bridgeGame.getBridgeLine(DOWN);
+
         outputView.printMap(upBridge);
         outputView.printMap(downBridge);
     }

@@ -44,24 +44,14 @@ public class BridgeGame {
     public boolean isRightDirection(int idx, String direction) {
         return bridge.isRightDirection(idx, direction);
     }
-
-    public List<String> getUpBridge() {
-        List<String> upBridge = new ArrayList<>();
+    public List<String> getBridgeLine(String direction) {
+        List<String> bridgeLine = new ArrayList<>();
         for(int i = 0; i < visited.size(); i++) {
             boolean rightDirection = isRightDirection(i, visited.get(i));
-            String result = getResult(i, UP, rightDirection);
-            upBridge.add(result);
+            String result = getResult(i, direction, rightDirection);
+            bridgeLine.add(result);
         }
-        return upBridge;
-    }
-    public List<String> getDownBridge() {
-        List<String> downBridge = new ArrayList<>();
-        for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = isRightDirection(i, visited.get(i));
-            String result = getResult(i, DOWN, rightDirection);
-            downBridge.add(result);
-        }
-        return downBridge;
+        return bridgeLine;
     }
     public boolean isGameCompleted() {
         if(bridge.isCrossDirection(visited) && isSuccess) {
