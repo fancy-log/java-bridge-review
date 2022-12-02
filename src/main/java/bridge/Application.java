@@ -49,7 +49,7 @@ public class Application {
         printUpBridge();
         printDownBridge();
 
-        return !bridgeGame.isRightDirection(visited.size()-1, direction);
+        return bridgeGame.isRightDirection(visited.size()-1, direction);
     }
     private static void printUpBridge() {
         List<String> upBridge = new ArrayList<>();
