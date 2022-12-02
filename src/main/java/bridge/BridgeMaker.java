@@ -8,7 +8,6 @@ import java.util.List;
  */
 public class BridgeMaker {
     private static final int UP = 1;
-    private static final int DOWN = 0;
     private final BridgeNumberGenerator bridgeNumberGenerator;
 
     public BridgeMaker(BridgeNumberGenerator bridgeNumberGenerator) {
@@ -34,9 +33,6 @@ public class BridgeMaker {
         if (number == UP) {
             return "U";
         }
-        if (number == DOWN) {
-            return "D";
-        }
-        return null;
+        return "D";
     }
 }
