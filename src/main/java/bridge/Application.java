@@ -34,11 +34,11 @@ public class Application {
 
     private static void gameStart() {
         while(true) {
-            boolean keep = move();
             if(bridgeGame.isGameCompleted()) {
+                outputView.printEnter();
                 break;
             }
-            if(!keep && !retry()) {
+            if(!move() && !retry()) {
                 break;
             }
         }
