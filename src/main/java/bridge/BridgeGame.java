@@ -1,5 +1,7 @@
 package bridge;
 
+import static bridge.Application.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,25 @@ public class BridgeGame {
     }
     public boolean isRightDirection(int idx, String direction) {
         return bridge.isRightDirection(idx, direction);
+    }
+
+    public List<String> getUpBridge() {
+        List<String> upBridge = new ArrayList<>();
+        for(int i = 0; i < visited.size(); i++) {
+            boolean rightDirection = isRightDirection(i, visited.get(i));
+            String result = getResult(i, UP, rightDirection);
+            upBridge.add(result);
+        }
+        return upBridge;
+    }
+    public List<String> getDownBridge() {
+        List<String> downBridge = new ArrayList<>();
+        for(int i = 0; i < visited.size(); i++) {
+            boolean rightDirection = isRightDirection(i, visited.get(i));
+            String result = getResult(i, DOWN, rightDirection);
+            downBridge.add(result);
+        }
+        return downBridge;
     }
     public boolean isGameCompleted() {
         if(bridge.isCrossDirection(visited) && isSuccess) {

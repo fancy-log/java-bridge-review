@@ -52,22 +52,12 @@ public class Application {
         return bridgeGame.isRightDirection(visited.size()-1, direction);
     }
     private static void printUpBridge() {
-        List<String> upBridge = new ArrayList<>();
-        for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = bridgeGame.isRightDirection(i, visited.get(i));
-            String result = getResult(i, UP, rightDirection);
-            upBridge.add(result);
-        }
+        List<String> upBridge = bridgeGame.getUpBridge();
         outputView.printMap(upBridge);
     }
 
     private static void printDownBridge() {
-        List<String> downBridge = new ArrayList<>();
-        for(int i = 0; i < visited.size(); i++) {
-            boolean rightDirection = bridgeGame.isRightDirection(i, visited.get(i));
-            String result = getResult(i, DOWN, rightDirection);
-            downBridge.add(result);
-        }
+        List<String> downBridge = bridgeGame.getDownBridge();
         outputView.printMap(downBridge);
     }
 
