@@ -3,6 +3,7 @@ package bridge;
 import java.util.ArrayList;
 import java.util.List;
 
+import Util.Validate;
 import View.InputView;
 import View.OutputView;
 

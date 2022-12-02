@@ -1,4 +1,4 @@
-package bridge;
+package Util;
 
 public class Validate {
     private final String ERROR_MASSAGE = "[ERROR] ";
