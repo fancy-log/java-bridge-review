@@ -94,16 +94,14 @@ public class BridgeGame {
         tryNum += 1;
         isSuccess = true;
     }
-
-    public void printGameResult() {
-        outputView.printEnding();
-        printUpBridge();
-        printDownBridge();
-        boolean isCompleted = bridge.isCrossDirection(visited);
+    public int getTryNum() {
+        return tryNum;
+    }
+    public String getGameResult() {
         String result = "실패";
         if(isGameCompleted()) {
             result = "성공";
         }
-        outputView.printResult(result,tryNum);
+        return result;
     }
 }

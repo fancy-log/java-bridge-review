@@ -17,6 +17,7 @@ public class Application {
         // TODO: 프로그램 구현
         init();
         gameStart();
+        printGameResult();
     }
 
     private static void init() {
@@ -69,5 +70,14 @@ public class Application {
             result = " ";
         }
         return result;
+    }
+
+    private static void printGameResult() {
+        outputView.printEnding();
+        printUpBridge();
+        printDownBridge();
+        String result = bridgeGame.getGameResult();
+        int tryNum = bridgeGame.getTryNum();
+        outputView.printResult(result,tryNum);
     }
 }
