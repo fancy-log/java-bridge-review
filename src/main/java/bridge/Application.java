@@ -58,16 +58,6 @@ public class Application {
         outputView.printMap(upBridge);
         outputView.printMap(downBridge);
     }
-    public static String getResult(int i, String direction, boolean rightDirection) {
-        String result = "O";
-        if(!rightDirection) {
-            result ="X";
-        }
-        if(!visited.get(i).equals(direction)) {
-            result = " ";
-        }
-        return result;
-    }
     public static boolean retry() {
         String select = inputView.readGameCommand();
         return bridgeGame.retry(select);

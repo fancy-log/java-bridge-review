@@ -53,6 +53,17 @@ public class BridgeGame {
         }
         return bridgeLine;
     }
+    public String getResult(int i, String direction, boolean rightDirection) {
+        String result = "O";
+        if(!rightDirection) {
+            isSuccess = false;
+            result ="X";
+        }
+        if(!visited.get(i).equals(direction)) {
+            result = " ";
+        }
+        return result;
+    }
     public boolean isGameCompleted() {
         if(bridge.isCrossDirection(visited) && isSuccess) {
             return true;
