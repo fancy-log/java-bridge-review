@@ -16,6 +16,7 @@ public class Application {
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        outputView.printGameStart();
         try {
             init();
             gameStart();
@@ -27,9 +28,13 @@ public class Application {
     }
 
     private static void init() {
-        outputView.printGameStart();
-        String input = inputView.readBridgeSize();
-        bridgeGame.init(input);
+        try {
+            String input = inputView.readBridgeSize();
+            bridgeGame.init(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            init();
+        }
     }
 
     private static void gameStart() {
