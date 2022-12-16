@@ -21,7 +21,7 @@ public class Application {
             gameStart();
             printGameResult();
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            outputView.printErrorMessage(e.getMessage());
         }
 
     }
@@ -31,7 +31,7 @@ public class Application {
             String input = inputView.readBridgeSize();
             bridgeGame.init(input);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            outputView.printErrorMessage(e.getMessage());
             init();
         }
     }
