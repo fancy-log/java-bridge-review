@@ -1,6 +1,5 @@
 package bridge;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import View.InputView;
@@ -38,16 +37,17 @@ public class Application {
     }
 
     private static void gameStart() {
-        while(true) {
-            if(bridgeGame.isGameCompleted()) {
+        while (true) {
+            if (bridgeGame.isGameCompleted()) {
                 outputView.printEnter();
                 break;
             }
-            if(!move() && !retry()) {
+            if (!move() && !retry()) {
                 break;
             }
         }
     }
+
     private static boolean move() {
         String direction = inputView.readMoving();
         boolean isRightDirection = bridgeGame.move(direction);
@@ -63,15 +63,17 @@ public class Application {
         outputView.printMap(upBridge);
         outputView.printMap(downBridge);
     }
+
     public static boolean retry() {
         String select = inputView.readGameCommand();
         return bridgeGame.retry(select);
     }
+
     private static void printGameResult() {
         outputView.printEnding();
         printBridge();
         String result = bridgeGame.getGameResult();
         int tryNum = bridgeGame.getTryNum();
-        outputView.printResult(result,tryNum);
+        outputView.printResult(result, tryNum);
     }
 }

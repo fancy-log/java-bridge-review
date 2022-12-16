@@ -1,13 +1,9 @@
 package bridge;
 
-import static bridge.Application.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import Util.Validate;
-import View.InputView;
-import View.OutputView;
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
