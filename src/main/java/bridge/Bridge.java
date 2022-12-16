@@ -17,7 +17,7 @@ public class Bridge {
     }
 
     public boolean isCrossDirection(List<String> visited) {
-        if(visited.size() == answerBridge.size()) {
+        if (visited.size() == answerBridge.size()) {
             return true;
         }
         return false;

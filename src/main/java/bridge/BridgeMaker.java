@@ -8,9 +8,10 @@ import java.util.List;
  */
 public class BridgeMaker {
     private final BridgeNumberGenerator bridgeNumberGenerator;
+
     private enum Direction {
-        UP(1,"U"),
-        DOWN(0,"D");
+        UP(1, "U"),
+        DOWN(0, "D");
 
         private final int num;
         private final String word;

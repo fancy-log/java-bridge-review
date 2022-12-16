@@ -14,9 +14,9 @@ public class OutputView {
      */
     public void printMap(List<String> results) {
         System.out.print("[ ");
-        for(int i = 0; i < results.size(); i++) {
+        for (int i = 0; i < results.size(); i++) {
             System.out.print(results.get(i));
-            if(i == results.size()-1) {
+            if (i == results.size() - 1) {
                 break;
             }
             System.out.print(" | ");
@@ -33,12 +33,15 @@ public class OutputView {
         System.out.println("게임 성공 여부: " + result);
         System.out.println("총 시도한 횟수: " + tryNum);
     }
+
     public void printEnding() {
         System.out.println("최종 게임 결과");
     }
+
     public void printGameStart() {
         System.out.println("다리 건너기 게임을 시작합니다.");
     }
+
     public void printEnter() {
         System.out.println();
     }
